@@ -3,23 +3,23 @@ block content
         .myform.form-second
           .logo.mb-3
             .col-md-12.text-center
-              h1 Signup
+              h1= pageHeader.title
           form(action='#', name='registration')
             .form-group
-              label(for='exampleInputEmail1') First Name
+              label(for='exampleInputEmail1')=details.firstName
               input#firstname.form-control(type='text', name='firstname', aria-describedby='emailHelp', placeholder='Enter Firstname')
             .form-group
-              label(for='exampleInputEmail1') Last Name
+              label(for='exampleInputEmail1')=details.lastName
               input#lastname.form-control(type='text', name='lastname', aria-describedby='emailHelp', placeholder='Enter Lastname')
             .form-group
-              label(for='exampleInputEmail1') Email address
+              label(for='exampleInputEmail1')=details.email
               input#email.form-control(type='email', name='email', aria-describedby='emailHelp', placeholder='Enter email')
             .form-group
-              label(for='exampleInputEmail1') Password
+              label(for='exampleInputEmail1')=details.password
               input#password.form-control(type='password', name='password', aria-describedby='emailHelp', placeholder='Enter Password')
             .col-md-12.text-center.mb-3
-              button.btn.btn-block.mybtn.btn-primary.tx-tfm(type='submit') Get Started For Free
+              a#signup(href='/content/')=details.startFree
             .col-md-12
               .form-group
                 p.text-center
-                  a#signin(href='/') Already have an account?
+                  a#signin(href='/')=details.alreadyHave
