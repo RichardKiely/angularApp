@@ -1,0 +1,40 @@
+extends layout 
+block content
+   .container
+   .row
+    .col-md-5.mx-auto
+      #first
+        .myform.form
+          .logo.mb-3
+            .col-md-12.text-center
+              h1 Login
+          form(action='', method='post', name='login')
+            .form-group
+              label(for='exampleInputEmail1') Email address
+              input#email.form-control(type='email', name='email', aria-describedby='emailHelp', placeholder='Enter email')
+            .form-group
+              label(for='exampleInputEmail1') Password
+              input#password.form-control(type='password', name='password', aria-describedby='emailHelp', placeholder='Enter Password')
+            .form-group
+              p.text-center
+                | By signing up you accept our 
+                a(href='#') Terms Of Use
+            .col-md-12.text-center
+              a#signup(href='/hotel-list/') Login
+            .col-md-12
+              .login-or
+                hr.hr-or
+                span.span-or or
+            .col-md-12.mb-3
+              p.text-center
+                a.google.btn.mybtn(href='javascript:void();')
+                  i.fa.fa-google-plus
+                  |  Signup using Google
+            .form-group
+              p.text-center
+                | Don&apos;t have account? 
+                a#signup(href='/register/') Sign up here
+      
+      
+      
+
