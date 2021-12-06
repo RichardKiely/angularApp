@@ -3,10 +3,11 @@ let express = require("express");
 let path = require("path");
 let cookieParser = require("cookie-parser");
 let logger = require("morgan");
-require("./app_server/models/db");
-const indexRouter = require("./app_server/routes/index");
-const usersRouter = require("./app_server/routes/users");
 
+require("./app_api/models/db");
+
+const index = require("./app_server/routes/index");
+const apiRoutes = require("./app_api/routes/index");
 let app = express();
 
 // view engine setup
@@ -19,8 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/", index);
+app.use("/api", apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,3 +1,11 @@
+const request = require("request");
+const apiOptions = {
+  server: "http://localhost:3000",
+};
+if (process.env.NODE_ENV === "production") {
+  apiOptions.server = "https://frozen-ridge-58967.herokuapp.com";
+}
+
 const index = function (req, res) {
   res.render("index", { title: "Hotel Finder" });
 };
@@ -17,7 +25,7 @@ const register = function (req, res) {
     },
   });
 };
-const content = function (req, res) {
+const _renderHomepage = function (req, res, responseBody) {
   res.render("content", {
     title: "Hotel Info",
     pageHeader: {
@@ -47,6 +55,23 @@ const content = function (req, res) {
         cost: "€99",
       },
     ],
+  });
+};
+
+const content = function (req, res) {
+  const path = "/api/locations";
+  const requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {},
+    qs: {
+      lng: -0.9690884,
+      lat: 51.455041,
+      maxDistance: 20,
+    },
+  };
+  request(requestOptions, (err, response, body) => {
+    _renderHomepage(req, res, body);
   });
 };
 
