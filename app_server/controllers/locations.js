@@ -3,7 +3,7 @@ const apiOptions = {
   server: "http://localhost:3000",
 };
 if (process.env.NODE_ENV === "production") {
-  apiOptions.server = "https://git.heroku.com/frozen-bridge.git";
+  apiOptions.server = "https://git.heroku.com/hote8r.git";
 }
 
 const index = function (req, res) {
